@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>اختبار</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- شاشة الفيديو -->
+  <div id="video-screen" class="video-screen">
+    <div class="video-text">شوف الفيديو علمود تعرف شلون تمتحن 👇</div>
+    <div class="video-container">
+      <iframe
+        src="https://www.youtube.com/embed/ondmyoZGKm4?si=DYyDRhi1ysu87ONL"
+        title="شرح الاختبار"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <button id="start-btn" class="start-btn">بدأ الاختبار</button>
+  </div>
+
+  <!-- شاشة الاختبار -->
+  <div id="quiz-screen" class="hidden">
+    <div class="choices" id="choices"></div>
+    <div id="questions"></div>
+    <button id="result-button" class="result-button" onclick="showResult()">عرض النتيجة</button>
+    <div id="result" class="result"></div>
+    <div id="toggle-container"></div>
+    <div class="footer">إعداد الأستاذ: علي حسين</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

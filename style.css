@@ -156,6 +156,8 @@ body {
   display: none; /* نخفي الأسئلة والكلمات */
 }
 
+.video-container { position: relative; }
+
 /* دائرة تدور في المنتصف */
 #spinner {
   position: absolute;

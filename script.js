@@ -108,3 +108,11 @@ function showResult(){
   toggleContainer.appendChild(hideBtn);
   toggleContainer.appendChild(showBtn);
 }
+
+const spinner = document.getElementById('spinner');
+const iframe  = document.getElementById('quiz-video');
+
+// عندما ينتهي تحميل الـ iframe
+iframe.addEventListener('load', () => {
+  spinner.style.display = 'none';
+});

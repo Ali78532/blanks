@@ -8,27 +8,24 @@
 </head>
 <body>
   <!-- شاشة الفيديو -->
-  <div id="video-screen" class="video-screen">
+  <div id="video-screen" class="video-screen active">
     <div class="video-text">شوف الفيديو علمود تعرف شلون تمتحن 👇</div>
     <div class="video-container">
-    <div id="spinner"></div>
-	  <iframe
-        id="quiz-video"
-		src="https://www.youtube.com/embed/ondmyoZGKm4?si=DYyDRhi1ysu87ONL"
-        title="شرح الاختبار"
-        allowfullscreen>
-      </iframe>
+      <div id="spinner"></div>
+      <iframe id="quiz-video" src="https://www.youtube.com/embed/ondmyoZGKm4?si=DYyDRhi1ysu87ONL"
+        title="شرح الاختبار" allowfullscreen></iframe>
     </div>
-    <button id="start-btn" class="start-btn">بدأ الاختبار</button>
+    <button id="start-btn" class="start-btn">أبدأ الاختبار</button>
   </div>
 
   <!-- شاشة الاختبار -->
-  <div id="quiz-screen" class="hidden">
+  <div id="quiz-screen" class="quiz-screen hidden">
     <div class="choices" id="choices"></div>
     <div id="questions"></div>
-    <button id="result-button" class="result-button" onclick="showResult()">عرض النتيجة</button>
+    <button id="result-button" class="result-button">تحقق</button>
+    <button id="show-score-btn" class="toggle-btn">عرض الدرجة</button>
     <div id="result" class="result"></div>
-    <div id="toggle-container"></div>
+    <button id="show-sol-btn" class="toggle-btn">عرض الحل</button>
     <div class="footer">إعداد الأستاذ: علي حسين</div>
   </div>
 

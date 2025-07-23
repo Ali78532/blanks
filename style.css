@@ -1,9 +1,13 @@
-* { box-sizing: border-box; margin:0; padding:0 }
-
-body {
-  font-family: 'Arial', sans-serif;
+/* تهيئة عامة */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+/* جسم الصفحة */
+body {
+  font-family: 'Arial', sans-serif;
   background: linear-gradient(to bottom, #a0e7f7, #ffccf2);
   color: #333;
   min-height: 100vh;
@@ -19,146 +23,35 @@ body {
   align-items: center;
   width: 100%;
 }
+
+/* نص الفيديو مع مسافة أسفل */
 .video-text {
   margin-top: 20px;
+  margin-bottom: 30px;
   font-size: 1.2em;
-  margin-bottom: 1rem;
+  color: #333;
 }
+
+/* حاوية الفيديو وسبنر */
 .video-container {
+  position: relative;
   width: 90%;
   max-width: 600px;
-  aspect-ratio: 3 / 5; 
+  aspect-ratio: 3/5;
   margin-bottom: 1rem;
   border: 2px solid #000;
   border-radius: 8px;
   overflow: hidden;
 }
+
+/* إطارات الفيديو */
 .video-container iframe {
   width: 100%;
   height: 100%;
   border: none;
 }
 
-.start-btn {
-  padding: 0.8rem 1.5rem;
-  background: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-bottom: 2rem;
-}
-.start-btn:hover { background: #45a049; }
-
-.hidden { display: none; }
-
-.choices {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  margin: 20px 0;
-}
-.choice {
-  background: #ff88cc;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: all 0.3s;
-}
-.choice:hover { transform: scale(1.1); }
-
-.question-container {
-  background: white;
-  border-radius: 20px;
-  width: 90%; max-width: 600px;
-  margin: 10px auto;
-  padding: 15px;
-  font-size: 18px;
-}
-.blank {
-  display: inline-block;
-  width: 100px; height: 20px;
-  border-bottom: 2px dashed #ff88cc;
-  text-align: center;
-  cursor: pointer;
-}
-.filled { background: #ff88cc; color: white; border-radius: 50px; }
-
-/* زر النتيجة */
-.result-button {
-  display: none;
-  background: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  font-size: 18px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 15px auto;
-  display: block;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-}
-.result-button:hover { background: #45a049; }
-
-/* زر إخفاء/عرض الحل */
-#toggle-container {
-  text-align: center;
-  margin-top: 20px;
-}
-.toggle-btn {
-  display: inline-block;
-  background: transparent;
-  border: 2px solid #000;
-  color: #000;
-  margin: 5px;
-  padding: 10px 20px;
-  font-size: 1em;
-  border-radius: 10px;
-}
-
-.result {
-  text-align: center;
-  margin-top: 15px;
-  font-size: 35px;
-  font-weight: bold;
-}
-
-.correct-answer, .user-correct {
-  text-align: right;
-  direction: rtl;
-}
-.correct-answer { color: red; }
-.user-correct  { color: green; }
-
-.footer {
-  margin: 30px 0;
-  font-size: 16px;
-  color: #555;
-  text-align: center;
-}
-
-/* عندما يكون الحل مخفيًا، نصوّب الشاشة على أنها حاوية Flex */
-#quiz-screen.center-screen {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* يوسّط عموديًّا */
-  align-items: center;     /* يوسّط أفقيًّا */
-  height: 100vh;           /* يملأ ارتفاع النافذة */
-}
-
-/* نتأكد أن الأطفال (الدرجة، أزرار التبديل، الفوتر) لا يرثون styles تعيقهم */
-#quiz-screen.center-screen .question-container,
-#quiz-screen.center-screen .choices {
-  display: none; /* نخفي الأسئلة والكلمات */
-}
-
-.video-container { position: relative; }
-
-/* دائرة تدور في المنتصف */
+/* سبنر التحميل - يظهر تلقائياً عند بدء الصفحة */
 #spinner {
   position: absolute;
   top: 50%;
@@ -166,19 +59,183 @@ body {
   transform: translate(-50%, -50%);
   width: 50px;
   height: 50px;
-  border: 6px solid rgba(255,255,255,0.3);
+  border: 6px solid rgba(255, 255, 255, 0.3);
   border-top-color: #fff;
   border-radius: 50%;
   animation: spin 1s linear infinite;
   z-index: 10;
   background-color: #000;
+  display: block; /* تأكّد من ظهوره */
 }
 
 @keyframes spin {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* زر البدء */
+.start-btn {
+  padding: 0.8rem 1.5rem;
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.start-btn:hover {
+  background: #45a049;
+}
+
+/* إخفاء العناصر */
+.hidden {
+  display: none;
+}
+
+/* قائمة الكلمات */
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.choice {
+  background: #ff88cc;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.3s;
+}
+
+.choice:hover {
+  transform: scale(1.1);
+}
+
+/* حاوية السؤال */
+.question-container {
+  background: #fff;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 600px;
+  margin: 10px auto;
+  padding: 15px;
+  font-size: 18px;
+}
+
+/* الفراغات */
+.blank {
+  display: inline-block;
+  width: 100px;
+  height: 20px;
+  border-bottom: 2px dashed #ff88cc;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* عند الملء */
+.filled {
+  background: #ff88cc;
+  color: white;
+  border-radius: 50px;
+}
+
+/* زر التحقق */
+.result-button {
+  display: none;
+  background: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 15px auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.result-button:hover {
+  background: #45a049;
+}
+
+/* زر عرض الدرجة - مُوسَّط أفقياً */
+#show-score-btn {
+  display: none;
+  background: transparent;
+  border: 2px solid #000;
+  color: #000;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 20px auto; /* وسط أفقياً */
+  display: block;
+  text-align: center;
+}
+
+#show-score-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* زر عرض الحل - مُوسَّط أفقياً */
+#show-sol-btn {
+  display: none;
+  background: transparent;
+  border: 2px solid #000;
+  color: #000;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 10px auto; /* وسط أفقياً */
+  text-align: center;
+}
+
+#show-sol-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* عرض النتيجة */
+.result {
+  text-align: center;
+  margin: 20px auto;
+  font-size: 35px;
+  font-weight: bold;
+  color: black;
+  display: none;
+}
+
+/* تغذية راجعة */
+.correct-answer {
+  text-align: right;
+  direction: rtl;
+  color: red;
+}
+
+.user-correct {
+  text-align: right;
+  direction: rtl;
+  color: green;
+}
+
+/* الفوتر */
+.footer {
+  margin: 30px 0;
+  font-size: 16px;
+  color: #555;
+  text-align: center;
+}
+
+/* توسيط محتوى النتيجة */
+#quiz-screen.center-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
